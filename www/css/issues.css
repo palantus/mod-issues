@@ -1,0 +1,27 @@
+
+summary{outline: none}
+details summary{cursor: pointer; -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;}
+
+
+
+#assignmentDialog-tabs-assignments table{
+	width: 100%;
+}
+
+#assignmentDialog-tabs-assignments td:first-child{
+	width: 85px;
+}
+
+#assignmentDialog-tabs-assignments .multilineheader{
+	margin-top: 10px;
+	margin-bottom: 5px;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+#assignmentDialog-tabs-assignments td{
+	vertical-align: top;
+	padding: 0px;
+	padding-bottom: 5px;
+	padding-right: 5px;
+}

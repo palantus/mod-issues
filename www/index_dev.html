@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+	<title>Issue Management</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=10,IE=9,IE=8,IE=edge" />
+
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="shortcut icon" sizes="1024x1024" href="/img/checklist.png">
+
+	<style>
+		html{min-height:100%;}
+		body{
+			min-height:100%;
+			background-image:url('/img/wallpapers/eclipse.jpg'); 
+			background-size:   cover;   
+			background-attachment: fixed;  
+			background-position: center;
+		}
+	</style>
+
+	<link rel="stylesheet" type="text/css" href="/css/tablecreator.css" />
+	<link rel="stylesheet" type="text/css" href="/css/popupcreator.css" />
+	<link rel="stylesheet" type="text/css" href="/css/tablecreator.css" />
+	<link rel="stylesheet" type="text/css" href="/css/popupcreator.css" />
+	<link rel="stylesheet" type="text/css" href="/css/desktopcreator.css" />
+	<link rel="stylesheet" type="text/css" href="/css/searchbar.css" />
+	<link rel="stylesheet" type="text/css" href="/css/taskbar.css" />
+	<link rel="stylesheet" type="text/css" href="/css/rightclickmenu.css" />
+	<link rel="stylesheet" type="text/css" href="/css/notifier.css" />
+	<link rel="stylesheet" type="text/css" href="/css/comments.css" />
+	<link rel="stylesheet" type="text/css" href="/css/fieldedit.css" />
+	<link rel="stylesheet" type="text/css" href="/issues/css/issues.css" />
+
+	<!-- Mobile -->
+	<!--
+	<link rel="stylesheet" type="text/css" href="/css/desktopcreator.mobile.css" />
+	<link rel="stylesheet" type="text/css" href="/css/popupcreator.mobile.css" />
+	-->
+	
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/jquery.cookie.js"></script>
+	<!--<script src="/js/all.js"></script>-->
+	<script src="/issues/js/common.js"></script>
+
+	<!-- Should be included in all.js and removed! -->
+	<script src="/js/framework.js"></script>
+	<script src="/js/tablecreator.js"></script>
+	<script src="/js/popupcreator.js"></script>
+	<script src="/js/desktopcreator.js"></script>
+	<script src="/js/searchbar.js"></script>
+	<script src="/js/taskbar.js"></script>
+	<script src="/js/rightclickmenu.js"></script>
+	<script src="/js/notifier.js"></script>
+	<script src="/js/comments.js"></script>
+	<script src="/js/fieldedit.js"></script>
+	<script src="/js/lookupcreator.js"></script>
+	
+	<!-- Apps -->
+	<script src="/issues/apps/assignments/assignmentlist.js"></script>
+	<script src="/issues/apps/tags/tags.js"></script>
+	<script src="/issues/apps/projects/projects.js"></script>
+	<script src="/issues/apps/changelog/changelog.js"></script>
+	<script src="/issues/apps/milestones/milestones.js"></script>
+	<script src="/user/apps/login.js"></script>
+	<script src="/user/apps/profile.js"></script>
+	<!--
+	<script src="/issues/apps/tags/tags.js"></script>
+	<script src="/issues/apps/settings/settings.js"></script>
+	<script src="/issues/apps/notifications/notifications.js"></script>
+	<script src="/issues/apps/docs/docs.js"></script>
+	<script src="/issues/apps/changelog/changelog.js"></script>
+	<script src="/issues/apps/customers/customers.js"></script>
+	<script src="/issues/apps/forum/forum.js"></script>
+	<script src="/issues/apps/sessions/sessions.js"></script>
+	<script src="/issues/apps/help/help.js"></script>
+	<script src="/issues/apps/minifix/minifix.js"></script>
+	-->
+
+	<!-- Helper libs -->
+	<script src="/user/loginchecker.js"></script>
+	<script src="/ahkpro/js/desktoploader.js"></script>	
+	<script src="/ahkpro/js/actionlinkhandler.js"></script>	
+
+	<script>
+		//var desktop = new DesktopCreator();
+		var issueMan = new IssueManagement();
+
+		/*
+		if(!isMobile()){
+			$("link[href='/css/desktopcreator.mobile.css']")[0].disabled = true;
+			$("link[href='/css/popupcreator.mobile.css']")[0].disabled = true;
+		}
+		*/
+
+		$(function() {
+			var apps = [
+							loadModule_AssignmentList(),
+							loadModule_Tags(),
+							loadModule_Projects(),
+							loadModule_Login(),
+							loadModule_Profile(),
+							loadModule_Changelog(),
+							loadModule_Milestones(),
+							{title: "Home", gotoURL: "/ahkpro", icon: "/img/home.png"}
+							/*
+							loadModule_Settings(),
+							loadModule_Notifications(),
+							loadModule_Docs(),
+							loadModule_Changelog(),
+							loadModule_Customers(),
+							loadModule_Forum(),
+							loadModule_Sessions(),
+							loadModule_Help(),
+							loadModule_Minifix()*/
+							/*{title: "Gammel liste", gotoURL: "/assignments.html"}*/
+					   ];
+
+			var loader = new DesktopLoader();
+			loader.init({
+				apps: apps
+			});
+			loader.run();
+
+			issueMan.init();
+		});
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

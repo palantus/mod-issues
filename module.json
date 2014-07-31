@@ -1,0 +1,4 @@
+{
+	"main" : "IssuesModule.js",
+	"deps": ["database"]
+}
